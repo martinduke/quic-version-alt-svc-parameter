@@ -2,18 +2,18 @@
 title: "An Alt-Svc Parameter for QUIC Versions"
 category: std
 
-docname: draft-duke-httpbis-quic-version-alt-svc
+docname: draft-duke-httpbis-quic-version-alt-svc-latest
 v: 3
-area: ART
-workgroup: httpbis
+area: "Applications and Real-Time"
+workgroup: "HTTP"
 keyword: Internet-Draft
 venue:
-  group: httpbis WG
-  type: Working Group
-  mail: ietf-http-wg@w3.org
-  arch: https://example.com/WG
-  github: martinduke/quic-version-alt-svc-parameter
-  latest: https://example.com/LATEST
+  group: "HTTP"
+  type: "Working Group"
+  mail: "ietf-http-wg@w3.org"
+  arch: "https://lists.w3.org/Archives/Public/ietf-http-wg/"
+  github: "martinduke/quic-version-alt-svc-parameter"
+  latest: "https://martinduke.github.io/quic-version-alt-svc-parameter/draft-duke-httpbis-quic-version-alt-svc.html"
 
 author:
  -
