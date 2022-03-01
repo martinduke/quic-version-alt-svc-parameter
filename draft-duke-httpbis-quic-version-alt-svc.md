@@ -115,7 +115,7 @@ supported throughout the pool.
 # Security Considerations
 
 
-This document inherits the security considerations of {{RFC7838}}, especially
+This document inherits the security considerations of {{ALT-SVC}}, especially
 the implications of "Changing Protocols" in Section 9.3. There are few
 protocol properties guaranteed to hold across all QUIC versions, so endpoints
 should be aware what capabilities are intrinsic to the QUIC versions they are
