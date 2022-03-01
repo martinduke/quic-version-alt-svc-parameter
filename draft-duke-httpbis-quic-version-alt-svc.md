@@ -3,7 +3,6 @@ title: "An Alt-Svc Parameter for QUIC Versions"
 category: std
 
 docname: draft-duke-httpbis-quic-version-alt-svc-latest
-v: 3
 area: "Applications and Real-Time"
 workgroup: "HTTP"
 keyword: Internet-Draft
