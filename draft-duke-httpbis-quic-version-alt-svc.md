@@ -49,7 +49,7 @@ this penalty.
 
 # Introduction
 
-The HTTP Alterative Services field {{ALT-SVC=!I-D.ietf-httpbis-rfc8383bis}}
+The HTTP Alterative Services field {{!ALT-SVC=I-D.ietf-httpbis-rfc8383bis}}
 allows an HTTP server to inform the client of other locations to access a
 resource, including via a different protocol. A client might connect using the
 protocol with the highest probability success, but prefer the properties of
