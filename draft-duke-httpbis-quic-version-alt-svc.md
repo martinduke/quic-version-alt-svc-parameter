@@ -19,29 +19,32 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
-category: info
+title: "An Alt-Svc Parameter for QUIC Versions"
+category: std
 
-docname: draft-todo-yourname-protocol-latest
+docname: draft-duke-httpbis-quic-version-alt-svc
 v: 3
-area: AREA
-workgroup: WG Working Group
+area: ART
+workgroup: httpbis
 keyword: Internet-Draft
 venue:
-  group: WG
+  group: httpbis WG
   type: Working Group
-  mail: WG@example.com
+  mail: ietf-http-wg@w3.org
   arch: https://example.com/WG
-  github: USER/REPO
+  github: martinduke/quic-version-alt-svc-parameter
   latest: https://example.com/LATEST
 
 author:
  -
+    fullname: Martin Duke
+    organization: Google
+    email: martin.h.duke@gmail.com
+
+ -
     fullname: Your Name Here
     organization: Your Organization Here
     email: your.email@example.com
-
 normative:
 
 informative:
