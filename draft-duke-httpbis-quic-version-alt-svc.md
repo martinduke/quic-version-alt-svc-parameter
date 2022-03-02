@@ -4,6 +4,7 @@ category: std
 
 docname: draft-duke-httpbis-quic-version-alt-svc-latest
 area: "Applications and Real-Time"
+ipr: trust200902
 workgroup: "HTTP"
 keyword: Internet-Draft
 stand_alone: yes
