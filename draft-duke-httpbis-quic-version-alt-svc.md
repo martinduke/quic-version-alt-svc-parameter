@@ -6,6 +6,7 @@ docname: draft-duke-httpbis-quic-version-alt-svc-latest
 area: "Applications and Real-Time"
 workgroup: "HTTP"
 keyword: Internet-Draft
+stand_alone: yes
 venue:
   group: "HTTP"
   type: "Working Group"
@@ -49,7 +50,7 @@ this penalty.
 
 # Introduction
 
-The HTTP Alterative Services field {{!ALTSVC=I-D.ietf-httpbis-rfc8383bis}}
+The HTTP Alterative Services field {{!ALTSVC=I-D.ietf-httpbis-rfc7838bis}}
 allows an HTTP server to inform the client of other locations to access a
 resource, including via a different protocol. A client might connect using the
 protocol with the highest probability success, but prefer the properties of
