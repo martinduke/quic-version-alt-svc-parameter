@@ -28,60 +28,70 @@ author:
     email: lucaspardue.24.7@gmail.com
 
 normative:
-    
+
 
 informative:
 
 
 --- abstract
 
-The HTTP Alternative Services (Alt-Svc) header informs clients of alternate
-locations of the same resource. Among its fields, it includes the Application
-Layer Protocol Negotiation (ALPN) codepoint of those locations. When the ALPN
-is "h3", that indicates to the client that the resource can be accessed via the
-QUIC protocol. However, without a priori knowledge of the QUIC version in use,
-clients might incur a round-trip latency penalty to complete QUIC version
-negotiation, or forfeit desirable properties of a QUIC version. This document
-specifies a new parameter for the Alt-Svc header that specifies the supported
-QUIC versions at the alternate location, substantially reducing the chance of
-this penalty.
+HTTP Alternative Services (Alt-Svc) describes how one origin's resource can be
+accessed via a different protocol/host/port combination. Alternatives are
+advertised by servers using the Alt-Svc header field or the ALTSVC frame. This
+includes a protocol name, which reuses Application Layer Protocol Negotiation
+(ALPN) codepoints. The "h3" codepoint indicates the availability of HTTP/3. A
+client that uses such an alternative first makes a QUIC connection. However,
+without a priori knowledge of which QUIC version to use, clients might incur a
+round-trip latency penalty to complete QUIC version negotiation, or forfeit
+desirable properties of a QUIC version. This document specifies a new Alt-Svc
+parameter that specifies the alternatives supported QUIC version, which
+substantially reducing the chance of this penalty.
 
 
 --- middle
 
 # Introduction
 
-The HTTP Alterative Services field {{!ALTSVC=I-D.ietf-httpbis-rfc7838bis}}
-allows an HTTP server to inform the client of other locations to access a
-resource, including via a different protocol. A client might connect using the
-protocol with the highest probability success, but prefer the properties of
-another. Note that  HTTP/2 {{?I-D.ietf-httpbis-http2bis}} recommends servers
-send Alt-Svc in an ALTSVC frame, although the field is valid.
+HTTP Alternative Services (Alt-Svc) {{!ALTSVC=I-D.ietf-httpbis-rfc7838bis}}
+describes how one origin's resource can be accessed via a different
+protocol/host/port combination. Alternatives are advertised by servers using the
+Alt-Svc header field or the ALTSVC frame. This includes a protocol name, which
+reuses codepoints from the Application-Layer Protocol Negotiation (ALPN) TLS
+extension {{?RFC7301}}. Servers can advertise multiple alternatives, in which
+case the order reflects the servers preferences (the first value being the most
+preferred).
 
-In particular, Alt-Svc includes a codepoint from the Application-Layer Protocol
-Negotiation (ALPN) TLS extension {{?RFC7301}}. Originally intend to allow
-multiple applications to utilize TLS or DTLS on the same IP address and TCP or
-UDP port, ALPN can also usefully identify the transport in an Alt-Svc context.
-The "h3" ALPN informs the client that it can use HTTP/3 {{?I-D.ietf-quic-http}}
-for access, which in turn requires the QUIC transport protocol {{?RFC8999}}.
+Clients can ignore alternative services, or pick one at their discretion. A
+client might use any details from the advertisement, in addition to out of
+band information, in determining if an alternative is suitable or preferred.
+the properties of another.
+
+While ALPN was originally intend to allow multiple applications to utilize TLS
+or DTLS on the same IP address and TCP or UDP port, ALPN can also usefully
+identify the transport in an Alt-Svc context. The "h3" ALPN codepoint informs
+the client that it can use HTTP/3 {{?I-D.ietf-quic-http}} for access, which in
+turn requires the QUIC transport protocol {{?RFC8999}}.
 
 QUIC is versioned. A client and server that both support a QUIC version can,
-through a negotiation process, geenrally agree on that version in no more than
+through a negotiation process, generally agree on that version in no more than
 one round-trip. However, to avoid that penalty clients might use the most
-commonly deployed QUIC version (e.g. version 1 {{?RFC9000}}), rather than the
-version with the most desirable properties for the client's use case.
+commonly deployed QUIC version (e.g. version 1 {{?RFC9000}} at the time of
+writing), rather than the version with the most desirable properties for the
+client's use case.
 
-One solution is to register new ALPN codepoints for new QUIC versions. However,
-this might complicate deployment of new versions and deprecation of old ones:
+To avoid the round-trip, one solution would be to register unique ALPN
+codepoints for each HTTP/3 and QUIC version combination. However, this might
+complicate deployment of new versions and deprecation of old ones:
 architecturally, an application should provide its ALPN to its QUIC
 implementation. In this case, fully deploying a new version in that
 implementation would require updating all applications that use it.
 
 Instead, this document specifies an Alt-Svc parameter that lists the QUIC
 versions available to serve the resource. Clients that do not understand this
-parameter might default to the most likely version, and/or incur a round-trip
-penalty in the event of a mismatch. Clients that do process the parameter will
-connect successfully using the most desirable version with high probability.
+parameter will ignore it. They might default to the most likely version, and/or
+incur a round-trip penalty in the event of a mismatch. Clients that do process
+the parameter will connect successfully using the most desirable version with
+high probability.
 
 
 # Conventions and Definitions
@@ -99,7 +109,7 @@ supported by an endpoint.
 ```
 parameter       = param-key "=" param-value
 param-key       = "quicv"
-param-value     = version 1*( OWS, "," OWS version) 
+param-value     = version 1*( OWS, "," OWS version)
 version         = 8(HEXDIG)
 ```
 
