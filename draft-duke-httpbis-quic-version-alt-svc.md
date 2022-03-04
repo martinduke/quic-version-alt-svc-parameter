@@ -97,31 +97,39 @@ high probability.
 
 {::boilerplate bcp14-tagged}
 
-This document uses the Augmented BNF defined in {{!RFC5234}} and structured
-fields defined in {{!RFC8941}}.
+This document uses the Augmented BNF defined in {{!RFC5234}} and imports
+`parameter` from {{Section 3 of ALTSVC}}.
 
 # The quicv Parameter
 
-This document specifies the "quicv" parameter, which lists the QUIC versions
-supported by an endpoint.
+This document specifies the "quicv" Alt-Svc parameter, which lists the QUIC
+versions supported by an endpoint, using the hexadecimal representation of the
+version field in a QUIC long header, as indicated in {{RFC8999}}.
 
-```
-parameter       = param-key "=" param-value
-param-key       = "quicv"
-param-value     = version 1*( OWS, "," OWS version)
-version         = 8(HEXDIG)
-```
+~~~ abnf
+quicv         = version-list
+version-list  = DQUOTE version 1*( OWS, "," OWS version-number) DQUOTE
+version = 1*8 HEXDIG; hex-encoded QUIC version
+~~~
 
-The "version" field is the hexadecimal representation of the version field in a
-QUIC long header, as indicated in {{RFC8999}}.
+Examples:
 
-Note that each parameter applies to a single entry in the Alt-Svc list. Servers
-MUST NOT append a quicv parameter to an ALPN that does not potentially utilize
-QUIC.
+~~~
+Alt-Svc: h3=":443"; quicv="1"
+Alt-Svc: h3=":443"; quicv="709a50c4,1"
+Alt-Svc: h3=":443"; quicv="709a50c4,1", h3=":1001"; quicv="709a50c4"
+~~~
 
-If the Alt-Svc information resolves to a server pool that inconsistenly supports
-different QUIC versions, the parameter SHOULD only advertise versions that are
-supported throughout the pool.
+The order of entries in version-list reflects the server's preference (with the
+first value being the most preferred alternative).
+
+Note that the quicv parameter applies to a single associated entry in the
+Alt-Svc list. Servers MUST NOT provide a quicv parameter to an entry containing
+ALPN codepoint that does not potentially utilize QUIC.
+
+If the Alt-Svc information resolves to a server pool that inconsistently
+supports different QUIC versions, the parameter SHOULD only advertise versions
+that are supported throughout the pool.
 
 # Security Considerations
 
