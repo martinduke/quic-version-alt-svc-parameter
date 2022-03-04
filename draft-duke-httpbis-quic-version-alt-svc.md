@@ -104,7 +104,8 @@ This document uses the Augmented BNF defined in {{!RFC5234}} and imports
 
 This document specifies the "quicv" Alt-Svc parameter, which lists the QUIC
 versions supported by an endpoint, using the hexadecimal representation of the
-version field in a QUIC long header, as indicated in {{RFC8999}}.
+version field in a QUIC long header, as indicated in {{RFC8999}}. Senders MAY
+omit leading zeroes from version numbers.
 
 ~~~ abnf
 quicv         = version-list
