@@ -97,23 +97,22 @@ This document specifies the "quicv" Alt-Svc parameter, which lists the QUIC
 versions supported by an endpoint, using the hexadecimal representation of the
 version field in a QUIC long header, as indicated in {{RFC8999}}.
 
-``` abnf
+~~~ abnf
 quicv         = version-list
-version-list  = DQUOTE version-number 1*( OWS, "," OWS version-number) DQUOTE
-version-number = 1*8 HEXDIG; hex-encoded QUIC version
-```
+version-list  = DQUOTE version 1*( OWS, "," OWS version-number) DQUOTE
+version = 1*8 HEXDIG; hex-encoded QUIC version
+~~~
 
 For example:
 
-```
+~~~
 Alt-Svc: h3=":443"; quicv="1"
 Alt-Svc: h3=":443"; quicv="2,1"
 Alt-Svc: h3=":443"; quicv="2,1", h3=":1001"; quicv="2"
-```
+~~~
 
-When multiple version-number are present in the quicv parameter, the order of
-the values reflects the server's preference (with the first value being the most
-preferred alternative).
+The order of entries in version-list reflects the server's preference (with the
+first value being the most preferred alternative).
 
 Note that the quicv parameter applies to a single associated entry in the
 Alt-Svc list. Servers MUST NOT provide a quicv parameter to an entry containing
