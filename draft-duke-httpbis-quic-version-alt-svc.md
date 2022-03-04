@@ -44,8 +44,8 @@ client that uses such an alternative first makes a QUIC connection. However,
 without a priori knowledge of which QUIC version to use, clients might incur a
 round-trip latency penalty to complete QUIC version negotiation, or forfeit
 desirable properties of a QUIC version. This document specifies a new Alt-Svc
-parameter that specifies the alternatives supported QUIC version, which
-substantially reducing the chance of this penalty.
+parameter that specifies alternative supported QUIC versions, which
+substantially reduces the chance of this penalty.
 
 
 --- middle
@@ -58,13 +58,12 @@ protocol/host/port combination. Alternatives are advertised by servers using the
 Alt-Svc header field or the ALTSVC frame. This includes a protocol name, which
 reuses codepoints from the Application-Layer Protocol Negotiation (ALPN) TLS
 extension {{?RFC7301}}. Servers can advertise multiple alternatives, in which
-case the order reflects the servers preferences (the first value being the most
+case the order reflects the server's preferences (the first value being the most
 preferred).
 
 Clients can ignore alternative services, or pick one at their discretion. A
 client might use any details from the advertisement, in addition to out of
 band information, in determining if an alternative is suitable or preferred.
-the properties of another.
 
 While ALPN was originally intend to allow multiple applications to utilize TLS
 or DTLS on the same IP address and TCP or UDP port, ALPN can also usefully
