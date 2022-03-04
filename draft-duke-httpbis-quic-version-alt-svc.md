@@ -103,12 +103,12 @@ version-list  = DQUOTE version 1*( OWS, "," OWS version-number) DQUOTE
 version = 1*8 HEXDIG; hex-encoded QUIC version
 ~~~
 
-For example:
+Examples:
 
 ~~~
 Alt-Svc: h3=":443"; quicv="1"
-Alt-Svc: h3=":443"; quicv="2,1"
-Alt-Svc: h3=":443"; quicv="2,1", h3=":1001"; quicv="2"
+Alt-Svc: h3=":443"; quicv="709a50c4,1"
+Alt-Svc: h3=":443"; quicv="709a50c4,1", h3=":1001"; quicv="709a50c4"
 ~~~
 
 The order of entries in version-list reflects the server's preference (with the
