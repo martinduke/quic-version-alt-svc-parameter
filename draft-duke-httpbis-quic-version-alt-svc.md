@@ -47,7 +47,7 @@ desirable properties of a QUIC version. This document specifies a new Alt-Svc
 parameter that specifies alternative supported QUIC versions, which
 substantially reduces the chance of this penalty.
 
-Similarly, DNS SVCB and HTTPs Resource Records allow clients to use DNS for
+Similarly, DNS SVCB and HTTPS Resource Records allow clients to use DNS for
 additional instructions to access a service or resource. This document also
 defines a new SvcParamKey for these Resource Records that specifies the
 specific QUIC versions in use.
@@ -96,10 +96,11 @@ incur a round-trip penalty in the event of a mismatch. Clients that do process
 the parameter will connect successfully using the most desirable version with
 high probability.
 
-DNS SVCB and HTTPS Resource Records {{!I-D.ietf-dsnop-svcb-https}} allow the
-distribution of access instructions beyond the IP address via the Domain Name
-System. This document also specifies a new SvcParamKey for these Resource
-Records to distribute QUIC version information via DNS.
+Domain Name System (DNS) Service Binding (SVCB) and HTTPS Resource Records
+{{!I-D.ietf-dsnop-svcb-https}} allow the distribution of access instructions
+beyond the IP address via DNS. This document also specifies a new SvcParamKey
+for these Resource Records to distribute QUIC version information with this
+technique.
 
 
 # Conventions and Definitions
