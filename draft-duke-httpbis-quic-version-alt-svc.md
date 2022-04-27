@@ -144,10 +144,12 @@ that are supported throughout the pool.
 
 # The quicv SvcParamKey
 
-SVCB and HTTPS Resource Records can include the quicv SvcParamKey. Its syntax
-and use are identical to the quicv Alt-Svc Parameter. To include the quicv
-SvcParamKey in a resource record, it MUST also include at least one ALPN that
-can be delivered over QUIC.
+SVCB and HTTPS Resource Records can include the quicv SvcParamKey. Its
+presentation format value and use are identical to the quicv Alt-Svc Parameter.
+Its wire format value consists of the version numbers in network byte order.
+
+To include the quicv SvcParamKey in a resource record, it MUST also include at
+least one ALPN that can be delivered over QUIC.
 
 For example, if "https://example.com:443" sent an Alt-Svc value of
 
@@ -201,3 +203,13 @@ Format Reference: This document
 {:numbered="false"}
 
 Thanks to Ben Schwartz for his help with the Resource Record formatting.
+
+# Change Log
+
+> **RFC Editor's Note:**  Please remove this section prior to
+> publication of a final version of this document.
+
+## since draft-duke-httpbis-quic-version-alt-svc-00
+
+* Added SVCB and HTTPS Resource Records
+
