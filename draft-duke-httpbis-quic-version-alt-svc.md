@@ -1,5 +1,5 @@
 ---
-title: "An Alt-Svc Parameter for QUIC Versions"
+title: "An Alt-Svc Parameter and SvcParamKey for QUIC Versions"
 category: std
 
 docname: draft-duke-httpbis-quic-version-alt-svc-latest
@@ -47,6 +47,10 @@ desirable properties of a QUIC version. This document specifies a new Alt-Svc
 parameter that specifies alternative supported QUIC versions, which
 substantially reduces the chance of this penalty.
 
+Similarly, DNS SVCB and HTTPs Resource Records allow clients to use DNS for
+additional instructions to access a service or resource. This document also
+defines a new SvcParamKey for these Resource Records that specifies the
+specific QUIC versions in use.
 
 --- middle
 
@@ -92,6 +96,11 @@ incur a round-trip penalty in the event of a mismatch. Clients that do process
 the parameter will connect successfully using the most desirable version with
 high probability.
 
+DNS SVCB and HTTPS Resource Records {{!I-D.ietf-dsnop-svcb-https}} allow the
+distribution of access instructions beyond the IP address via the Domain Name
+System. This document also specifies a new SvcParamKey for these Resource
+Records to distribute QUIC version information via DNS.
+
 
 # Conventions and Definitions
 
@@ -132,6 +141,11 @@ If the Alt-Svc information resolves to a server pool that inconsistently
 supports different QUIC versions, the parameter SHOULD only advertise versions
 that are supported throughout the pool.
 
+# The quicv SvcParamKey
+
+SVCB and HTTPS Resource Records can include the quicv SvcParamKey. Its syntax
+and use are identical to the quicv Alt-Svc Parameter.
+
 # Security Considerations
 
 
@@ -148,11 +162,21 @@ version negotiation packet.
 
 # IANA Considerations
 
-Please add this entry ot the HTTP Alt-Svc Parameter Registry:
+Please add this entry to the HTTP Alt-Svc Parameter Registry:
 
 Alt-Svc Parameter: quicv
 
 Reference: This document
+
+Please add this entry to the Service Binding (SVCB) Parameter Registry:
+
+Number: TBD
+
+Name: quicv
+
+Meaning: Supported QUIC versions
+
+Format Reference: This document
 
 
 --- back
