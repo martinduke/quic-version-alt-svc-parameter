@@ -144,8 +144,9 @@ that are supported throughout the pool.
 
 # The quicv SvcParamKey
 
-SVCB and HTTPS Resource Records can include the quicv SvcParamKey. Its syntax
-and use are identical to the quicv Alt-Svc Parameter.
+SVCB and HTTPS Resource Records can include the quicv SvcParamKey. Its presentation
+format value and use are identical to the quicv Alt-Svc Parameter.  Its wire format value
+consists of the version numbers in network byte order.
 
 # Security Considerations
 
