@@ -151,17 +151,20 @@ Its wire format value consists of the version numbers in network byte order.
 To include the quicv SvcParamKey in a resource record, it MUST also include at
 least one ALPN that can be delivered over QUIC.
 
-For example, if "https://example.com:443" sent an Alt-Svc value of
+For example, consider a service configuration that advertisees two QUIC versions
+on the default port, but only one version on a non-default port.
+
+In Alt-Svc, this could be represented as:
 
 ~~~
 Alt-Svc: h3=":443"; quicv="709a50c4,1", h3=":1001"; quicv="709a50c4"
 ~~~
 
-over HTTP/2, an equivalent way to represent that in HTTPS records would be:
+As HTTPS RRs, this could be represented as:
 
 ~~~
-example.com IN HTTPS 1 alpn=h2,h3 port=443 quicv=709a50c4,1
-example.com IN HTTPS 1 alpn=h3 port=1001 quicv=709a50c4
+example.com IN HTTPS 1 . alpn=h2,h3 quicv=709a50c4,1
+example.com IN HTTPS 1 . alpn=h3 port=1001 quicv=709a50c4
 ~~~
 
 # Security Considerations
