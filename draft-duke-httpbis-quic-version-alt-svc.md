@@ -47,10 +47,10 @@ desirable properties of a QUIC version. This document specifies a new Alt-Svc
 parameter that specifies alternative supported QUIC versions, which
 substantially reduces the chance of this penalty.
 
-Similarly, DNS SVCB and HTTPS Resource Records allow clients to use DNS for
-additional instructions to access a service or resource. This document also
-defines a new SvcParamKey for these Resource Records that specifies the
-specific QUIC versions in use.
+Similarly, clients can retrieve additional instructions about access to services
+or resources via DNS SVCB and HTTP Resource Records. This document also defines
+a new SvcParamKey for these Resource Records, which specifies the specific QUIC
+versions in use.
 
 --- middle
 
@@ -145,7 +145,22 @@ that are supported throughout the pool.
 # The quicv SvcParamKey
 
 SVCB and HTTPS Resource Records can include the quicv SvcParamKey. Its syntax
-and use are identical to the quicv Alt-Svc Parameter.
+and use are identical to the quicv Alt-Svc Parameter. To include the quicv
+SvcParamKey in a resource record, it MUST also include at least one ALPN that
+can be delivered over QUIC.
+
+For example, if "https://example.com:443" sent an Alt-Svc value of
+
+~~~
+Alt-Svc: h3=":443"; quicv="709a50c4,1", h3=":1001"; quicv="709a50c4"
+~~~
+
+over HTTP/2, an equivalent way to represent that in HTTPS records would be:
+
+~~~
+example.com IN HTTPS 1 alpn=h2,h3 port=443 quicv=709a50c4,1
+example.com IN HTTPS 1 alpn=h3 port=1001 quicv=709a50c4
+~~~
 
 # Security Considerations
 
@@ -185,4 +200,4 @@ Format Reference: This document
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+Thanks to Ben Schwartz for his help with the Resource Record formatting.
