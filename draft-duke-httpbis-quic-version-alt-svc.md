@@ -205,6 +205,7 @@ Format Reference: This document
 Thanks to Ben Schwartz for his help with the Resource Record formatting.
 
 # Change Log
+{:numbered="false"}
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
