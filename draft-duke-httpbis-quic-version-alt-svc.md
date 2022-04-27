@@ -1,5 +1,5 @@
 ---
-title: "An Alt-Svc Parameter for QUIC Versions"
+title: "An Alt-Svc Parameter and SvcParamKey for QUIC Versions"
 category: std
 
 docname: draft-duke-httpbis-quic-version-alt-svc-latest
@@ -47,6 +47,10 @@ desirable properties of a QUIC version. This document specifies a new Alt-Svc
 parameter that specifies alternative supported QUIC versions, which
 substantially reduces the chance of this penalty.
 
+Similarly, clients can retrieve additional instructions about access to services
+or resources via DNS SVCB and HTTP Resource Records. This document also defines
+a new SvcParamKey for these Resource Records, which specifies the specific QUIC
+versions in use.
 
 --- middle
 
@@ -92,6 +96,12 @@ incur a round-trip penalty in the event of a mismatch. Clients that do process
 the parameter will connect successfully using the most desirable version with
 high probability.
 
+Domain Name System (DNS) Service Binding (SVCB) and HTTPS Resource Records
+{{!I-D.ietf-dsnop-svcb-https}} allow the distribution of access instructions
+beyond the IP address via DNS. This document also specifies a new SvcParamKey
+for these Resource Records to distribute QUIC version information with this
+technique.
+
 
 # Conventions and Definitions
 
@@ -132,6 +142,31 @@ If the Alt-Svc information resolves to a server pool that inconsistently
 supports different QUIC versions, the parameter SHOULD only advertise versions
 that are supported throughout the pool.
 
+# The quicv SvcParamKey
+
+SVCB and HTTPS Resource Records can include the quicv SvcParamKey. Its
+presentation format value and use are identical to the quicv Alt-Svc Parameter.
+Its wire format value consists of the version numbers in network byte order.
+
+To include the quicv SvcParamKey in a resource record, it MUST also include at
+least one ALPN that can be delivered over QUIC.
+
+For example, consider a service configuration that advertisees two QUIC versions
+on the default port, but only one version on a non-default port.
+
+In Alt-Svc, this could be represented as:
+
+~~~
+Alt-Svc: h3=":443"; quicv="709a50c4,1", h3=":1001"; quicv="709a50c4"
+~~~
+
+As HTTPS RRs, this could be represented as:
+
+~~~
+example.com IN HTTPS 1 . alpn=h2,h3 quicv=709a50c4,1
+example.com IN HTTPS 1 . alpn=h3 port=1001 quicv=709a50c4
+~~~
+
 # Security Considerations
 
 
@@ -148,16 +183,36 @@ version negotiation packet.
 
 # IANA Considerations
 
-Please add this entry ot the HTTP Alt-Svc Parameter Registry:
+Please add this entry to the HTTP Alt-Svc Parameter Registry:
 
 Alt-Svc Parameter: quicv
 
 Reference: This document
 
+Please add this entry to the Service Binding (SVCB) Parameter Registry:
 
---- back
+Number: TBD
+
+Name: quicv
+
+Meaning: Supported QUIC versions
+
+Format Reference: This document
 
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+Thanks to Ben Schwartz for his help with the Resource Record formatting.
+
+
+--- back
+
+# Change Log
+
+> **RFC Editor's Note:**  Please remove this section prior to
+> publication of a final version of this document.
+
+## since draft-duke-httpbis-quic-version-alt-svc-00
+
+* Added SVCB and HTTPS Resource Records
+
