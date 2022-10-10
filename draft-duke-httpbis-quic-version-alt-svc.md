@@ -72,8 +72,8 @@ band information, in determining if an alternative is suitable or preferred.
 While ALPN was originally intend to allow multiple applications to utilize TLS
 or DTLS on the same IP address and TCP or UDP port, ALPN can also usefully
 identify the transport in an Alt-Svc context. The "h3" ALPN codepoint informs
-the client that it can use HTTP/3 {{?I-D.ietf-quic-http}} for access, which in
-turn requires the QUIC transport protocol {{?RFC8999}}.
+the client that it can use HTTP/3 {{?RFC9114}} for access, which in turn
+requires the QUIC transport protocol {{?RFC8999}}.
 
 QUIC is versioned. A client and server that both support a QUIC version can,
 through a negotiation process, generally agree on that version in no more than
