@@ -1,0 +1,418 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2022-04-28T02:18:07.854835+00:00",
+  "repo": "martinduke/quic-version-alt-svc-parameter",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 3,
+      "id": "I_kwDOG7KTmM5GUar5",
+      "title": "SVCB",
+      "url": "https://github.com/martinduke/quic-version-alt-svc-parameter/issues/3",
+      "state": "CLOSED",
+      "author": "martinduke",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "@DavidSchinazi would like to see a worked example of this being extended to SVCB before agreeing that the h3 ALPN decision is sound.",
+      "createdAt": "2022-03-24T16:33:03Z",
+      "updatedAt": "2022-04-27T20:22:38Z",
+      "closedAt": "2022-04-27T20:22:38Z",
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOG7KTmM4z7o2g",
+      "title": "Alt-Svc Concepts and terminology roundup",
+      "url": "https://github.com/martinduke/quic-version-alt-svc-parameter/pull/1",
+      "state": "MERGED",
+      "author": "LPardue",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "It's easy to conflate origins and resources. So this is just me being pedantic on that. The general problem problem statement and flow of the prose is not intended to be changed.",
+      "createdAt": "2022-03-04T02:55:49Z",
+      "updatedAt": "2022-03-04T19:53:12Z",
+      "baseRepository": "martinduke/quic-version-alt-svc-parameter",
+      "baseRefName": "main",
+      "baseRefOid": "46341d0b5f242c7c789a26dbcfb594e093b805a1",
+      "headRepository": "LPardue/quic-version-alt-svc-parameter",
+      "headRefName": "concepts-terminology",
+      "headRefOid": "04e35d596db6813a834f0b21efe098868812abfa",
+      "closedAt": "2022-03-04T19:53:12Z",
+      "mergedAt": "2022-03-04T19:53:12Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "8c1e7f27bb240bfee31f8bce88ca45d318a03583"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOG7KTmM41qwNq",
+          "commit": {
+            "abbreviatedOid": "da19f49"
+          },
+          "author": "martinduke",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Thanks! Just some nits and I'll merge it.",
+          "createdAt": "2022-03-04T15:55:32Z",
+          "updatedAt": "2022-03-04T15:58:55Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "```suggestion\r\nparameter that specifies alternative supported QUIC versions, which\r\n```",
+              "createdAt": "2022-03-04T15:55:32Z",
+              "updatedAt": "2022-03-04T15:58:55Z"
+            },
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\r\nsubstantially reduces the chance of this penalty.\r\n```",
+              "createdAt": "2022-03-04T15:56:02Z",
+              "updatedAt": "2022-03-04T15:58:55Z"
+            },
+            {
+              "originalPosition": 58,
+              "body": "```suggestion\r\ncase the order reflects the server's preferences (the first value being the most\r\n```",
+              "createdAt": "2022-03-04T15:56:50Z",
+              "updatedAt": "2022-03-04T15:58:55Z"
+            },
+            {
+              "originalPosition": 64,
+              "body": "?",
+              "createdAt": "2022-03-04T15:57:25Z",
+              "updatedAt": "2022-03-04T15:58:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG7KTmM41rSzk",
+          "commit": {
+            "abbreviatedOid": "da19f49"
+          },
+          "author": "LPardue",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-04T17:57:31Z",
+          "updatedAt": "2022-03-04T17:57:32Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "```suggestion\r\n```",
+              "createdAt": "2022-03-04T17:57:31Z",
+              "updatedAt": "2022-03-04T17:57:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG7KTmM41rS2Z",
+          "commit": {
+            "abbreviatedOid": "da19f49"
+          },
+          "author": "LPardue",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-04T17:57:43Z",
+          "updatedAt": "2022-03-04T17:57:43Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "whoops",
+              "createdAt": "2022-03-04T17:57:43Z",
+              "updatedAt": "2022-03-04T17:57:43Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOG7KTmM4z7r0u",
+      "title": "Use parameter defined by Alt-Svc spec",
+      "url": "https://github.com/martinduke/quic-version-alt-svc-parameter/pull/2",
+      "state": "MERGED",
+      "author": "LPardue",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Few points here, I might have misinterpreted things though so open to debate.\r\n\r\nI have an alternative design in mind, but it seemed important to agree on what your initial design and fixing that up before debating alternatives\r\n\r\n0. There's some prior art in this area from gQUIC adoption and Mikes work to corale that, see https://datatracker.ietf.org/doc/html/draft-ietf-quic-http-01#section-2.1 from which I stole some ABNF\r\n1. You didn't provide an example, which makes it tougher to know what you expected this to look like if we put aside ABNF arguments. That said...\r\n1. Alt-Svc isn't a structured field. It already defines it's own parameter ABNF, so lets just use that, which means we have to provide a token or quoted string. If you had \"bare\" commas in the parameter, a HTTP parser would have detected that as a new entry\r\n2. So I plumped for a quoted string of comma-separated hex encoded vales.\r\n3. But I took off the restriction to maximally encode them (i.e use `1` not `00000001`)\r\n4. Any time there is a list of things, we should state if the list order matters. I picked first == most preferred, as that mirrors Alt-Svc entry order.",
+      "createdAt": "2022-03-04T03:25:26Z",
+      "updatedAt": "2022-03-04T19:51:57Z",
+      "baseRepository": "martinduke/quic-version-alt-svc-parameter",
+      "baseRefName": "main",
+      "baseRefOid": "81dbb84d464ed742eacfd574df358a083b880443",
+      "headRepository": "LPardue/quic-version-alt-svc-parameter",
+      "headRefName": "use-alt-svc-param",
+      "headRefOid": "bb99b1c7c68c3bfcca162f847e9f47ed00fda46d",
+      "closedAt": "2022-03-04T19:51:56Z",
+      "mergedAt": "2022-03-04T19:51:56Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "46341d0b5f242c7c789a26dbcfb594e093b805a1"
+      },
+      "comments": [
+        {
+          "author": "LPardue",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Worth noting that IIRC gQUIC used to rely on a v parameter that was a quoted list like here. But that in H3 draft 02, we moved to a set of repeated parameters that were single value. I can't remember the reasoning there but maybe worth trying to dig out the rationale. ",
+          "createdAt": "2022-03-04T03:33:49Z",
+          "updatedAt": "2022-03-04T03:33:49Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "OWNER",
+          "body": "This is a huge improvement, thank you.\r\n\r\nThe one concern I have is with the use of colloquial version numbers \"1\", \"2\". If we're going to go this route, I think we'll need to set up a registry. Personally, I'd just do the hex representation (if you want to cut off leading zeros, fine).\r\n\r\nIf you strongly prefer the IANA route, I'll go along with it.",
+          "createdAt": "2022-03-04T16:04:12Z",
+          "updatedAt": "2022-03-04T16:04:12Z"
+        },
+        {
+          "author": "LPardue",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Oh. I don't think we should duplicate any version codepoint; adding yet another registry sounds awful. This should just be a representation of the real version value. I just implicitly removed the leading zeroes but there should probably be some text that describes how to do that. Let me try change `2` to the version in your other draft to see if it makes things clearer.",
+          "createdAt": "2022-03-04T18:03:29Z",
+          "updatedAt": "2022-03-04T18:03:29Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOG7KTmM41qy4s",
+          "commit": {
+            "abbreviatedOid": "57aba2a"
+          },
+          "author": "martinduke",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-04T16:04:35Z",
+          "updatedAt": "2022-03-04T16:04:36Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "See my comment on Version numbers.",
+              "createdAt": "2022-03-04T16:04:35Z",
+              "updatedAt": "2022-03-04T16:04:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG7KTmM41qy6c",
+          "commit": {
+            "abbreviatedOid": "57aba2a"
+          },
+          "author": "martinduke",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-03-04T16:04:41Z",
+          "updatedAt": "2022-03-04T16:04:41Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOG7KTmM41rUSv",
+          "commit": {
+            "abbreviatedOid": "57aba2a"
+          },
+          "author": "LPardue",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-04T18:03:48Z",
+          "updatedAt": "2022-03-04T18:05:14Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\r\nExamples:\r\n```",
+              "createdAt": "2022-03-04T18:03:48Z",
+              "updatedAt": "2022-03-04T18:05:14Z"
+            },
+            {
+              "originalPosition": 42,
+              "body": "```suggestion\r\nAlt-Svc: h3=\":443\"; quicv=\"709a50c4,1\"\r\n```",
+              "createdAt": "2022-03-04T18:04:04Z",
+              "updatedAt": "2022-03-04T18:05:14Z"
+            },
+            {
+              "originalPosition": 43,
+              "body": "```suggestion\r\nAlt-Svc: h3=\":443\"; quicv=\"709a50c4,1\", h3=\":1001\"; quicv=\"709a50c4\"\r\n```",
+              "createdAt": "2022-03-04T18:04:18Z",
+              "updatedAt": "2022-03-04T18:05:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG7KTmM41rs6q",
+          "commit": {
+            "abbreviatedOid": "bb99b1c"
+          },
+          "author": "martinduke",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "We should probably specify the drop-leading-zeros thing, but I'll merge this.",
+          "createdAt": "2022-03-04T19:51:47Z",
+          "updatedAt": "2022-03-04T19:51:47Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOG7KTmM421zzY",
+      "title": "Svcb",
+      "url": "https://github.com/martinduke/quic-version-alt-svc-parameter/pull/4",
+      "state": "MERGED",
+      "author": "martinduke",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #3 ",
+      "createdAt": "2022-04-27T02:37:52Z",
+      "updatedAt": "2022-04-27T20:22:39Z",
+      "baseRepository": "martinduke/quic-version-alt-svc-parameter",
+      "baseRefName": "main",
+      "baseRefOid": "fb5808dc620bd74b473a7ccf845337ca30287276",
+      "headRepository": "martinduke/quic-version-alt-svc-parameter",
+      "headRefName": "svcb",
+      "headRefOid": "90d20e25015e083623557ace114134abd2c755a8",
+      "closedAt": "2022-04-27T20:22:38Z",
+      "mergedAt": "2022-04-27T20:22:38Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "87d33cd1c7cb85b4962dbe4a7758729a7b8b8074"
+      },
+      "comments": [
+        {
+          "author": "LPardue",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Under the definition of `quicv` for Alt-Svc, we state \r\n\r\n>    Note that the quicv parameter applies to a single associated entry in\r\n   the Alt-Svc list.  Servers MUST NOT provide a quicv parameter to an\r\n   entry containing ALPN codepoint that does not potentially utilize\r\n   QUIC.\r\n   \r\nWith HTTPS RR, https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-08#section-9.2.1 says \r\n\r\n> Unlike Alt-Svc Field Values, HTTPS RRs can contain multiple ALPN IDs.\r\n\r\nAn example given in the SVCB spec is:\r\n\r\n```\r\nFor example, suppose that \"https://example.com\" sends an Alt-Svc field value of:\r\n\r\n   Alt-Svc: h2=\"alt.example:443\", h2=\"alt2.example:443\", h3=\":8443\"\r\n\r\nThe client would retrieve the following HTTPS records:\r\n\r\n   alt.example.              IN HTTPS 1 . alpn=h2,h3 ech=...\r\n```\r\n\r\ndoes this mean it is ok to send a SVCB quicv param for such a record? If so maybe we need to just point this out.",
+          "createdAt": "2022-04-27T18:12:08Z",
+          "updatedAt": "2022-04-27T18:12:08Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOG7KTmM446_eQ",
+          "commit": {
+            "abbreviatedOid": "d99b1b2"
+          },
+          "author": "bemasc",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-04-27T14:17:49Z",
+          "updatedAt": "2022-04-27T14:17:50Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "```suggestion\r\nSVCB and HTTPS Resource Records can include the quicv SvcParamKey. Its presentation\r\nformat value and use are identical to the quicv Alt-Svc Parameter.  Its wire format value\r\nconsists of the version numbers in network byte order.\r\n```",
+              "createdAt": "2022-04-27T14:17:49Z",
+              "updatedAt": "2022-04-27T14:17:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG7KTmM448S8H",
+          "commit": {
+            "abbreviatedOid": "8620a30"
+          },
+          "author": "LPardue",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-04-27T17:57:35Z",
+          "updatedAt": "2022-04-27T17:57:36Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "I'm no DNS guru but \"clients use DNS for additional instructions\" seems a little loose.\r\n\r\nPerhaps just a tweak of the existing text like\r\n\r\nSimilarly, clients can retrieve additional instructions about access to services or resources via DNS SVCB and HTTP Resource Records. This document also defines a new SvcParamKey for these Resource Records, which specifies the specific QUIC versions in use.",
+              "createdAt": "2022-04-27T17:57:35Z",
+              "updatedAt": "2022-04-27T17:57:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG7KTmM448VX1",
+          "commit": {
+            "abbreviatedOid": "8620a30"
+          },
+          "author": "LPardue",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-04-27T18:05:29Z",
+          "updatedAt": "2022-04-27T18:05:30Z",
+          "comments": [
+            {
+              "originalPosition": 39,
+              "body": "Personally, I think it would help to see an illustrative example of one of these. That would help compare Alt-Svc to the RR when `quicv` is in play, similar https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-08#section-9.3",
+              "createdAt": "2022-04-27T18:05:30Z",
+              "updatedAt": "2022-04-27T18:05:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG7KTmM448qJN",
+          "commit": {
+            "abbreviatedOid": "19e3773"
+          },
+          "author": "LPardue",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "The updates work for me. Thanks!",
+          "createdAt": "2022-04-27T19:21:21Z",
+          "updatedAt": "2022-04-27T19:21:21Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
