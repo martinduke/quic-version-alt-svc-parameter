@@ -5,8 +5,8 @@
 HTTP                                                             M. Duke
 Internet-Draft                                                    Google
 Intended status: Standards Track                               L. Pardue
-Expires: 13 April 2023                                        Cloudflare
-                                                         10 October 2022
+Expires: 23 October 2023                                      Cloudflare
+                                                           21 April 2023
 
 
          An Alt-Svc Parameter and SvcParamKey for QUIC Versions
@@ -65,11 +65,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 April 2023.
+   This Internet-Draft will expire on 23 October 2023.
 
 Copyright Notice
 
-   Copyright (c) 2022 IETF Trust and the persons identified as the
+   Copyright (c) 2023 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -94,7 +94,8 @@ Table of Contents
      Normative References
      Informative References
    Appendix A.  Change Log
-     A.1.  since draft-duke-httpbis-quic-version-alt-svc-00
+     A.1.  since draft-duke-httpbis-quic-version-alt-svc-01
+     A.2.  since draft-duke-httpbis-quic-version-alt-svc-00
    Authors' Addresses
 
 1.  Introduction
@@ -262,9 +263,9 @@ Normative References
               Schwartz, B. M., Bishop, M., and E. Nygren, "Service
               binding and parameter specification via the DNS (DNS SVCB
               and HTTPS RRs)", Work in Progress, Internet-Draft, draft-
-              ietf-dnsop-svcb-https-10, 24 May 2022,
+              ietf-dnsop-svcb-https-12, 11 March 2023,
               <https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-
-              svcb-https-10>.
+              svcb-https-12>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -304,7 +305,11 @@ Appendix A.  Change Log
       *RFC Editor's Note:* Please remove this section prior to
       publication of a final version of this document.
 
-A.1.  since draft-duke-httpbis-quic-version-alt-svc-00
+A.1.  since draft-duke-httpbis-quic-version-alt-svc-01
+
+   *  No changes
+
+A.2.  since draft-duke-httpbis-quic-version-alt-svc-00
 
    *  Added SVCB and HTTPS Resource Records
 

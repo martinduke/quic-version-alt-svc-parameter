@@ -24,26 +24,24 @@ or resources via DNS SVCB and HTTP Resource Records. This document also defines
 a new SvcParamKey for these Resource Records, which specifies the specific QUIC
 versions in use. 
     " name="description">
-<meta content="xml2rfc 3.15.0" name="generator">
+<meta content="xml2rfc 3.17.1" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-duke-httpbis-quic-version-alt-svc-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.15.0
-    Python 3.10.5
+  xml2rfc 3.17.1
+    Python 3.10.11
     appdirs 1.4.4
     ConfigArgParse 1.5.3
     google-i18n-address 2.5.2
-    html5lib 1.1
     intervaltree 3.1.0
     Jinja2 3.1.2
-    kitchen 1.2.6
-    lxml 4.9.1
-    MarkupSafe 2.1.1
+    lxml 4.9.2
     pycountry 22.3.5
     PyYAML 6.0
-    requests 2.27.1
-    setuptools 59.4.0
+    requests 2.28.1
+    setuptools 65.6.0
     six 1.16.0
+    wcwidth 0.2.6
 -->
 <link href="draft-duke-httpbis-quic-version-alt-svc.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -374,7 +372,7 @@ ul.empty li, .ulEmpty li {
   margin-top: 0.5em;
 }
 :is(ul, ol).compact, .ulCompact, .olCompact {
-  line-height: 100%;
+  line-height: 1;
   margin: 0 0 0 2em;
 }
 
@@ -384,10 +382,13 @@ dl {
   --indent: 3ch;
   /* --indent: attr(indent ch); not supported in any browser, but we can dream */
 }
+dl.olPercent {
+  --indent: 5ch;
+}
 dl > dt {
   float: left;
-  margin-right: 1em;
-  min-width: 20ch;
+  margin-right: 2ch;
+  min-width: 8ch;
 }
 dl.dlNewline > dt {
   float: none;
@@ -396,6 +397,9 @@ dl > dd {
   margin-bottom: .8em;
   margin-left: var(--indent) !important; /* stupid element overrides */
   min-height: 2ex;
+}
+dl.olPercent > dt {
+  min-width: calc(var(--indent) - 2ch);
 }
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
@@ -410,7 +414,7 @@ dl > dd > dl {
   margin-top: 0.5em;
   margin-bottom: 0;
 }
-dl .break {
+:is(dd, span).break {
   display: none;
 }
 
@@ -418,11 +422,11 @@ dl .break {
 a, a[href].selfRef:hover {
   text-decoration: none;
 }
-a[href].selfRef {
-  color: var(--text-color);
-}
 a[href] {
   color: var(--link-color);
+}
+a[href].selfRef, .iref + a[href].internal {
+  color: var(--text-color);
 }
 a[href]:hover {
   text-decoration: underline;
@@ -430,7 +434,7 @@ a[href]:hover {
 a[href].selfRef:hover {
   background-color: var(--highlight-color);
 }
-a.xref {
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
 }
 
@@ -442,7 +446,9 @@ tt, code, pre {
 tt, code {
   /* changing the font for inline elements leads to different ascender
      and descender heights; as we want to retain baseline alignment,
-     remove leading to avoid altering the final height of lines */
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
   line-height: 0;
 }
 :is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
@@ -594,10 +600,14 @@ hr {
 .bcp14 {
   font-variant: small-caps;
   font-weight: 600;
-  font-size: 14.5px;
+  font-size: var(--small-font-size);
 }
 .role {
   font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
 }
 
 /* info block */
@@ -1039,7 +1049,7 @@ svg :is([stroke="white"], [stroke^="#fff"]) {
 svg :is([fill="black"], [fill^="#000"], :not([fill])) {
   fill: var(--text-color);
 }
-svg :is([stroke="fill"], [fill^="#fff"]) {
+svg :is([fill="white"], [fill^="#fff"]) {
   fill: var(--background-color);
 }
 </style>
@@ -1050,11 +1060,11 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">An Alt-Svc Parameter and SvcParamKey for</td>
-<td class="right">October 2022</td>
+<td class="right">April 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Duke &amp; Pardue</td>
-<td class="center">Expires 13 April 2023</td>
+<td class="center">Expires 23 October 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1067,12 +1077,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-duke-httpbis-quic-version-alt-svc-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-10-10" class="published">10 October 2022</time>
+<time datetime="2023-04-21" class="published">21 April 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-04-13">13 April 2023</time></dd>
+<dd class="expires"><time datetime="2023-10-23">23 October 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1139,7 +1149,7 @@ versions in use.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 13 April 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 23 October 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1148,7 +1158,7 @@ versions in use.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2022 IETF Trust and the persons identified as the
+            Copyright (c) 2023 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1204,7 +1214,10 @@ versions in use.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
             <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-change-log" class="internal xref">Change Log</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-since-draft-duke-httpbis-qu" class="internal xref">since draft-duke-httpbis-quic-version-alt-svc-00</a></p>
+                <p id="section-toc.1-1.9.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-since-draft-duke-httpbis-qu" class="internal xref">since draft-duke-httpbis-quic-version-alt-svc-01</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-since-draft-duke-httpbis-qui" class="internal xref">since draft-duke-httpbis-quic-version-alt-svc-00</a></p>
 </li>
             </ul>
 </li>
@@ -1283,8 +1296,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 versions supported by an endpoint, using the hexadecimal representation of the
 version field in a QUIC long header, as indicated in <span>[<a href="#RFC8999" class="cite xref">RFC8999</a>]</span>. Senders <span class="bcp14">MAY</span>
 omit leading zeroes from version numbers.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<div id="section-3-2">
-<pre class="lang-abnf sourcecode">
+<div class="lang-abnf sourcecode" id="section-3-2">
+<pre>
 quicv         = version-list
 version-list  = DQUOTE version 1*( OWS, "," OWS version-number) DQUOTE
 version = 1*8 HEXDIG; hex-encoded QUIC version
@@ -1388,7 +1401,7 @@ version negotiation packet.<a href="#section-5-2" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="I-D.ietf-dnsop-svcb-https">[I-D.ietf-dnsop-svcb-https]</dt>
         <dd>
-<span class="refAuthor">Schwartz, B. M.</span>, <span class="refAuthor">Bishop, M.</span>, and <span class="refAuthor">E. Nygren</span>, <span class="refTitle">"Service binding and parameter specification via the DNS (DNS SVCB and HTTPS RRs)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-dnsop-svcb-https-10</span>, <time datetime="2022-05-24" class="refDate">24 May 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-10">https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-10</a>&gt;</span>. </dd>
+<span class="refAuthor">Schwartz, B. M.</span>, <span class="refAuthor">Bishop, M.</span>, and <span class="refAuthor">E. Nygren</span>, <span class="refTitle">"Service binding and parameter specification via the DNS (DNS SVCB and HTTPS RRs)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-dnsop-svcb-https-12</span>, <time datetime="2023-03-11" class="refDate">11 March 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-12">https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-12</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
@@ -1439,13 +1452,24 @@ version negotiation packet.<a href="#section-5-2" class="pilcrow">¶</a></p>
 publication of a final version of this document.<a href="#appendix-A-1.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<div id="since-draft-duke-httpbis-quic-version-alt-svc-00">
+<div id="since-draft-duke-httpbis-quic-version-alt-svc-01">
 <section id="appendix-A.1">
         <h3 id="name-since-draft-duke-httpbis-qu">
-<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-since-draft-duke-httpbis-qu" class="section-name selfRef">since draft-duke-httpbis-quic-version-alt-svc-00</a>
+<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-since-draft-duke-httpbis-qu" class="section-name selfRef">since draft-duke-httpbis-quic-version-alt-svc-01</a>
         </h3>
 <ul class="normal">
-<li class="normal" id="appendix-A.1-1.1">Added SVCB and HTTPS Resource Records<a href="#appendix-A.1-1.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-A.1-1.1">No changes<a href="#appendix-A.1-1.1" class="pilcrow">¶</a>
+</li>
+        </ul>
+</section>
+</div>
+<div id="since-draft-duke-httpbis-quic-version-alt-svc-00">
+<section id="appendix-A.2">
+        <h3 id="name-since-draft-duke-httpbis-qui">
+<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-since-draft-duke-httpbis-qui" class="section-name selfRef">since draft-duke-httpbis-quic-version-alt-svc-00</a>
+        </h3>
+<ul class="normal">
+<li class="normal" id="appendix-A.2-1.1">Added SVCB and HTTPS Resource Records<a href="#appendix-A.2-1.1" class="pilcrow">¶</a>
 </li>
         </ul>
 </section>
